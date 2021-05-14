@@ -32,7 +32,7 @@
     </div>
     <script>
         var videos;
-        fetch('/videos.json')
+        fetch('videos.json')
         .then(response => response.json())
         .then(function(data){ videos = data.videos; });
 
