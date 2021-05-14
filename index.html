@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <title>video</title>
+</head>
+<body>
+    <div class="container">
+        <div class="video-holder">
+            <video id="video-player" width="100%" loop autoplay muted>
+                <source src="static/giphy.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="logo">DiceMoon</div>
+        <div class="row" id="controls">
+            <div class="controls">
+                <div class="profile" onclick="openProfile()">
+                    <img src="static/profile.svg" intrinsicsize="512 x 512" width="100%" height="100%" srcset="static/profile.svg 4x" alt="Next SVG Vector" title="Next SVG Vector">
+                </div>
+                <div class="home">
+                    <img src="/static/home.png" alt="" width="100%" height="100%">
+                </div>
+                <div class="next" onclick="playVideo()">
+                    <img src="static/next.svg" intrinsicsize="512 x 512" width="100%" height="100%" srcset="static/next.svg 4x" alt="Next SVG Vector" title="Next SVG Vector">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var videos;
+        fetch('/videos.json')
+        .then(response => response.json())
+        .then(function(data){ videos = data.videos; });
+
+        function playVideo(){
+            random = Math.floor(Math.random()*videos.length)
+            video = videos[random];
+            var player = document.querySelector(".video-holder")
+            player.innerHTML = ""
+            var videoEl = document.createElement('video');
+            videoEl.setAttribute('loop','')
+            videoEl.setAttribute('autoplay','')
+            videoEl.setAttribute('width','100%')
+            videoEl.setAttribute('height','100%')
+            var sourceEl = document.createElement('source');
+            sourceEl.setAttribute('src',video.source)
+            sourceEl.setAttribute('type','video/mp4')
+            videoEl.appendChild(sourceEl)
+            player.appendChild(videoEl)
+            videoEl.play()
+            let nextEl = document.getElementsByClassName('next')[0]
+            nextEl.classList.add('disabled')
+            let interval = setInterval(function(){
+                nextEl.classList.remove('disabled')
+                clearInterval(interval)
+            },5000)
+        }
+    </script>
+</body>
+</html>
