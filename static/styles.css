@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    background: #cfcfcf;
+}
+
+.video-holder{
+    margin: 10px;
+    line-height: 0;
+    border-radius: 4px;
+}
+
+.logo {
+    text-align: center;
+    font-family: system-ui;
+    font-weight: 500;
+    font-size: 1rem;
+    color: #fff;
+    top: -35px;
+    left: 74%;
+    z-index: 9999;
+    position: relative;
+    width: fit-content;
+    text-shadow: 0 0 12px black;
+}
+
+.controls {
+    background: #000000;
+    margin: 10px;
+    border-radius: 4px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    flex-direction: row;
+}
+
+.next,.profile {
+    padding: 10px 20px;
+}
+
+.home {
+    width: 40px;
+}
+
+.next.disabled{
+    opacity: .3;
+    pointer-events: none;
+}
+
+.row#controls{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
