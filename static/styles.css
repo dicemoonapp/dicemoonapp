@@ -15,12 +15,13 @@ body{
     font-weight: 500;
     font-size: 1rem;
     color: #fff;
-    top: -35px;
-    left: 74%;
+    top: 0;
+    left: 0;
     z-index: 9999;
-    position: relative;
-    width: fit-content;
+    position: fixed;
     text-shadow: 0 0 12px black;
+    width: 100%;
+    padding: 10px 0;
 }
 
 .controls {
@@ -52,4 +53,12 @@ body{
     position: fixed;
     width: 100%;
     bottom: 0px;
+}
+
+div#my-video {
+    width: 100%;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
