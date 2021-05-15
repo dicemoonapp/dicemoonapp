@@ -41,7 +41,7 @@
         .then(response => response.json())
         .then(function(data){ videos = data.videos; });
         
-        videoJs('my-video', {nativeControlsForTouch: true});
+        videojs('my-video', {nativeControlsForTouch: true});
 
         function playVideo(){
             random = Math.floor(Math.random()*videos.length)
