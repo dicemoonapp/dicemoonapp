@@ -4,16 +4,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://vjs.zencdn.net/7.11.4/video-js.css" rel="stylesheet" />
     <link rel="stylesheet" href="static/styles.css">
     <title>video</title>
 </head>
 <body>
     <div class="container">
         <div class="video-holder">
-            <video id="video-player" width="100%" loop autoplay muted>
-                <source src="static/welcome.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <video id="my-video" class="video-js" preload="auto" data-setup="{}" autoplay muted loop>
+            <source src="videos/CrcyWr0xhTatC1kSPdC9.mp4" type="video/mp4" />
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+    </video>
         </div>
         <div class="logo">DiceMoon</div>
         <div class="row" id="controls">
@@ -30,6 +34,7 @@
             </div>
         </div>
     </div>
+    <script src="https://vjs.zencdn.net/7.11.4/video.min.js"></script>
     <script>
         var videos;
         fetch('videos.json')
@@ -39,7 +44,9 @@
         function playVideo(){
             random = Math.floor(Math.random()*videos.length)
             video = videos[random];
-            var player = document.querySelector(".video-holder")
+            videojs.getPlayer('my-video').src(video.source)
+            videojs.getPlayer('my-video').muted(false)
+            /*var player = document.querySelector(".video-holder")
             player.innerHTML = ""
             var videoEl = document.createElement('video');
             videoEl.setAttribute('loop','')
@@ -57,7 +64,7 @@
             let interval = setInterval(function(){
                 nextEl.classList.remove('disabled')
                 clearInterval(interval)
-            },5000)
+            },5000) */
         }
     </script>
 </body>
