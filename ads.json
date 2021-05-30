@@ -5,7 +5,7 @@
   "admob":{
     "bannerAd" : "ca-app-pub-3940256099942544/6300978111",
     "interstitialAd" : "ca-app-pub-3940256099942544/1033173712",
-    "rewardedAd" : "ca-app-pub-3940256099942544/5224354917",
+    "rewardedAd" : "ca-app-pub-3179648794235152/2446937771",
     "interstitialDelay" : 3,
     "rewardedDelay" : 3
   },
