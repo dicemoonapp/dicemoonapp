@@ -94,9 +94,9 @@
     </style>
 </head>
 
-<body>
+<body onload="getDiamonds()">
     <div class="content">
-        <div class="balance">192<img src="/dicemoonapp/static/si-small.png" alt="diamond">
+        <div class="balance"><span id="diamondsCount">192</span><img src="/dicemoonapp/static/si-small.png" alt="diamond">
         </div>
         <div class="prizes">
             <div class="prize"><p>110</p></div>
@@ -124,7 +124,14 @@
         </div>
     </div>
     <script>
-
+        function getDiamonds(){
+            let diamonds = window.localStorage.getItem("dicemoon.diamonds")
+            if(diamonds == null){
+                diamonds = 20;
+                window.localStorage.setItem("dicemoon.diamonds",diamonds)
+            }
+            document.getElementById('diamondsCount').innerText = diamonds
+        }
     </script>
 </body>
 
